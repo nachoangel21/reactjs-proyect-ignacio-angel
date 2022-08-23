@@ -9,4 +9,17 @@
     margin: 80px;
   }
 
+  .logo {
+    display: flex;
+    margin: 20px;
+    width: 170px;
+    height: 200px;
+  }
+
+  .carrito {
+    margin: 0px;
+    height: 250px;
+    width: 227px;
+  }
+
  

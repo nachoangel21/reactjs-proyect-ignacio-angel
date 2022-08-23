@@ -1,15 +1,15 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './Componentes/NavBar/Navbar'
+import ItemListConteiner from './Componentes/ItemListConteiner/ItemListConteiner'
 
 function App() {
   return (
     <div className="App">
-      <body>
         <header className="App-header">
           <Navbar></Navbar>
         </header>
-      </body>
+        <ItemListConteiner greeting="Texto Provisional"></ItemListConteiner>
     </div>
   );
 }
