@@ -9,7 +9,7 @@ function App() {
         <header className="App-header">
           <Navbar></Navbar>
         </header>
-        <ItemListConteiner greeting="Texto Provisional"></ItemListConteiner>
+        <ItemListConteiner greeting="Contador con boton"></ItemListConteiner>
     </div>
   );
 }
