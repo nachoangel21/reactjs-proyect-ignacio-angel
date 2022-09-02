@@ -1,0 +1,10 @@
+.buttons {
+    background-color:burlywood;
+    width: 50%;
+    border-radius: 12%;
+    border: black solid 1px;
+}
+.button {
+    border-radius: 20%;
+    
+}

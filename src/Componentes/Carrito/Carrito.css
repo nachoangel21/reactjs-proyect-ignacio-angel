@@ -1,8 +1,9 @@
 .carrito {
-    background-color:lawngreen;
+    background-color: crimson;
   }
 
-  .carritoItem {
-    margin: 80px;
+  .carritoimg {
+    margin: 0px;
+    background-color: crimson;
 
   }

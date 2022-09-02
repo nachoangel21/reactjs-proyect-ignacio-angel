@@ -1,7 +1,7 @@
 
 import './App.css';
 import Navbar from './Componentes/NavBar/Navbar'
-import ItemListConteiner from './Componentes/ItemListConteiner/ItemListConteiner'
+import {ItemList} from './Componentes/ItemList/ItemList'
 import { useState } from 'react';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <Navbar></Navbar>
       </header>
       <section>
-        <ItemListConteiner greeting="SNICKERS"></ItemListConteiner>
+        <ItemList/>
       </section>
       <footer>
         <p>Este es el pie</p>

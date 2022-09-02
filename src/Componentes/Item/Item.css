@@ -1,0 +1,17 @@
+.card {
+    background-color: gray;
+    border: 2px black solid;
+    margin: 20px 0px 20px 0px;
+    height: 580px;
+}
+.cardSection {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.cardImg {
+    width: 90%;
+    
+}

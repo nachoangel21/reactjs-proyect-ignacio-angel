@@ -1,23 +1,21 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { useState } from 'react';
+import './Item.css'
 
-const Tarjeta = ({ zapatilla }) => {
-    const [numeroProductos, setNumeroProductos] = useState(0);
-    const agregar = (productos) => {
-        console.log("Productos agregados", productos)
-        setNumeroProductos(productos);
-    }
+export const Card = ({ zapatilla }) => {
 
     return (
-        <div className='tarjeta'>
-            <img src={zapatilla.img} alt="producto"></img>
-            <h5>{zapatilla.modelo}</h5>
-            <h3>{zapatilla.marca}</h3>
-            <p>{zapatilla.precio}</p>
-            <ItemCount stock={5} initial={1} onAdd={agregar} />
+        <div className="card">
+            <div className="cardSection">
+                <img src={zapatilla.img} alt="tarjeta" className='cardImg' />
+            </div>
+            <div className="cardSection">
+                <h5 className="cardElement">{zapatilla.modelo}</h5>
+                <h3 className="cardElement">{zapatilla.marca}</h3>
+                <p className="cardElement">{zapatilla.precio}</p>
+                <ItemCount initial={1} stock={5} className="cardElement" />
+            </div>
         </div>
     )
 }
-
-export default Tarjeta;
