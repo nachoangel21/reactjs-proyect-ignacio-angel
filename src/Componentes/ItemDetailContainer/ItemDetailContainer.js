@@ -2,13 +2,14 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 
+
 export const ItemDetailContainer = () => {
     const [product, setProduct] = useState([])
     const getProduct = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve([0])
-            })
+                resolve()
+            },2000)
         })
     }
     useEffect(() => {
