@@ -43,7 +43,7 @@ const arregloProductos = [
 ]
 
 export const ItemList = () => {
-    const {tipoProducto} = useParams();
+    const {tipoProductos} = useParams();
     const [productos, setProductos] = useState([]);
 
     const traerProductos = () => {
@@ -58,14 +58,14 @@ export const ItemList = () => {
         const funcionAsincrona = async () => {
             try {
                 const listado = await traerProductos();
-                const nuevaLista = listado.filter(producto=>producto.categoria === tipoProducto);
+                const nuevaLista = listado.filter(producto=>producto.categoria === tipoProductos);
                 setProductos(nuevaLista);
             } catch (error) {
                 console.log(window.alert("Hubo un error."))
             }
         }
         funcionAsincrona();
-    }, [tipoProducto])
+    }, [tipoProductos])
 
     return (
         <div className='container'>
