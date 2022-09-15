@@ -13,6 +13,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Navbar></Navbar>
+        </header>
           <Routes>
             <Route path='/' element={<ItemList/>}/>
             <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
@@ -21,12 +22,7 @@ function App() {
             <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
             <Route path='/ptoducto/:id' element={<ItemDetailContainer/>}/>
           </Routes>
-        </header>
-        <section>
-          <ItemList />
-        </section>
-        <ItemDetailContainer />
-        <footer>
+       <footer>
           <p>Este es el pie</p>
         </footer>
       </div>
