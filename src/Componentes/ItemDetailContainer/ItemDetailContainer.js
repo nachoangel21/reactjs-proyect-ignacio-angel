@@ -5,6 +5,7 @@ import airjordan1 from '../assest/airjordan1.jpg'
 import airjordan2 from '../assest/airjordan2.jpg'
 import airjordan3 from '../assest/airjordan3.jpg'
 import airjordan4 from '../assest/airjordan4.jpg'
+import { useParams } from 'react-router-dom';
 
 const arregloProductos = [
     {
@@ -47,7 +48,7 @@ const arregloProductos = [
 
 export const ItemDetailContainer = () => {
     const [product, setProduct] = useState([])
-
+    const {tipoProductos} = useParams();
     const getProduct = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -59,7 +60,8 @@ export const ItemDetailContainer = () => {
         const asincrona = async () => {
             try {
                 const productoTraido = await getProduct();
-                setProduct(productoTraido);
+                const newList = productoTraido.filter(product=>product.id === tipoProductos)
+                setProduct(newList);
                 console.log("productoTraido", productoTraido);
             } catch (error) {
                 console.log(window.alert("Hubo un error"))

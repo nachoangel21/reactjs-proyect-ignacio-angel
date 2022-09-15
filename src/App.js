@@ -20,7 +20,6 @@ function App() {
             <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
             <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
             <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
-            <Route path='/ptoducto/:id' element={<ItemDetailContainer/>}/>
           </Routes>
        <footer>
           <p>Este es el pie</p>

@@ -1,9 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { useParams } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './Item.css'
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
+
+
 
 export const Card = ({ producto }) => {
+    const { id } = useParams();
+    const [openDetailProduct, setOpenDetailProduct] = useState();
+
+    const traerDetalle = () => {
+        return new Promise ((resolve, reject) =>{
+
+        })
+    }
+    const showDetail = () => {
+        setOpenDetailProduct()
+
+    }
+
+    const stopEvent = (e) => {
+        e.stopPropagation();
+    }
 
     return (
         <div className="card">
@@ -15,9 +34,10 @@ export const Card = ({ producto }) => {
                 <h3 className="cardElement">{producto.marca}</h3>
                 <p className="cardElement">{producto.precio}</p>
                 <ItemCount initial={1} stock={5} className="cardElement" />
-                <NavLink to="/productos/id">
-                    <button>Ver Detalle</button>
+                <NavLink to="/producto/:id">
+                    <button onClick={showDetail}>Ver detalle</button>
                 </NavLink>
+
             </div>
         </div>
     )

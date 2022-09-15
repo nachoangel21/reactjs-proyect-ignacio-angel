@@ -6,6 +6,8 @@ import airjordan3 from '../assest/airjordan3.jpg';
 import airjordan4 from '../assest/airjordan4.jpg';
 import './ItemList.css';
 import { useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {ItemDetailContainer} from '../ItemDetailContainer/ItemDetailContainer' 
 
 const arregloProductos = [
     {
@@ -43,7 +45,7 @@ const arregloProductos = [
 ]
 
 export const ItemList = () => {
-    const {tipoProductos} = useParams();
+    const { tipoProductos } = useParams();
     const [productos, setProductos] = useState([]);
 
     const traerProductos = () => {
@@ -58,7 +60,7 @@ export const ItemList = () => {
         const funcionAsincrona = async () => {
             try {
                 const listado = await traerProductos();
-                const nuevaLista = listado.filter(producto=>producto.categoria === tipoProductos);
+                const nuevaLista = listado.filter(producto => producto.categoria === tipoProductos);
                 setProductos(nuevaLista);
             } catch (error) {
                 console.log(window.alert("Hubo un error."))
@@ -68,16 +70,22 @@ export const ItemList = () => {
     }, [tipoProductos])
 
     return (
-        <div className='container'>
-            <div className='cardsContainer'>
-                {
-                    productos.map((producto) => {
-                        return(
-                            <Card producto={producto}/>
-                        )
-                    })
-                }
+        <BrowserRouter>
+            <div className='container'>
+                <div className='cardsContainer'>
+                    {
+                        productos.map((producto) => {
+                            return (
+                                <Card producto={producto} />
+                            )
+                        })
+                    }
+                </div>
+                <Routes>
+                    <Route path='/producto/:id' element={<ItemDetailContainer/>}/>
+                </Routes>
             </div>
-        </div>
+
+        </BrowserRouter>
     )
 }
