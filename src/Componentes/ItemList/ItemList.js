@@ -1,46 +1,55 @@
-import React, { useEffect, useState } from 'react'
-import { Card } from '../Item/Item'
-import airjordan1 from '../assest/airjordan1.jpg'
-import airjordan2 from '../assest/airjordan2.jpg'
-import airjordan3 from '../assest/airjordan3.jpg'
-import airjordan4 from '../assest/airjordan4.jpg'
+import React, { useEffect, useState } from 'react';
+import { Card } from '../Item/Item';
+import airjordan1 from '../assest/airjordan1.jpg';
+import airjordan2 from '../assest/airjordan2.jpg';
+import airjordan3 from '../assest/airjordan3.jpg';
+import airjordan4 from '../assest/airjordan4.jpg';
 import './ItemList.css';
+import { useParams } from 'react-router-dom';
 
-const arregloZapatillas = [
+const arregloProductos = [
     {
+        id: 1,
         modelo: 'Air Jordan 1 High Blancas, Negras y Rojas',
         marca: 'Jordan',
         precio: '$ 50,000',
-        img: airjordan1
+        img: airjordan1,
+        categoria: 'snikers'
     },
     {
+        id: 2,
         modelo: 'Air Jordan 1 High Celestes y Blancas',
         marca: 'Jordan',
         precio: '$ 50,000',
-        img: airjordan2
+        img: airjordan2,
+        categoria: 'snikers'
     },
     {
+        id: 3,
         modelo: 'Air Jordan 1 High Blancas, Azules y Rojas',
         marca: 'Jordan',
         precio: '$ 50,000',
-        img: airjordan3
+        img: airjordan3,
+        categoria: 'snikers'
     },
     {
+        id: 4,
         modelo: 'Air Jordan 1 High Blancas, Rosas y Rojas',
         marca: 'Jordan',
         precio: '$ 50,000',
-        img: airjordan4
+        img: airjordan4,
+        categoria: 'snikers'
     }
 ]
 
 export const ItemList = () => {
+    const {tipoProducto} = useParams();
+    const [productos, setProductos] = useState([]);
 
-    const [zapatillas, setZapatillas] = useState([]);
-
-    const traerZapatillas = () => {
+    const traerProductos = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(arregloZapatillas)
+                resolve(arregloProductos)
             }, 3000);
         })
     }
@@ -48,23 +57,23 @@ export const ItemList = () => {
     useEffect(() => {
         const funcionAsincrona = async () => {
             try {
-                const listado = await traerZapatillas();
-                setZapatillas(listado);
-                console.log('listado', listado);
+                const listado = await traerProductos();
+                const nuevaLista = listado.filter(producto=>producto.categoria === tipoProducto);
+                setProductos(nuevaLista);
             } catch (error) {
                 console.log(window.alert("Hubo un error."))
             }
         }
         funcionAsincrona();
-    }, [])
+    }, [tipoProducto])
 
     return (
         <div className='container'>
             <div className='cardsContainer'>
                 {
-                    zapatillas.map((zapatilla) => {
+                    productos.map((producto) => {
                         return(
-                            <Card zapatilla={zapatilla}/>
+                            <Card producto={producto}/>
                         )
                     })
                 }

@@ -6,37 +6,44 @@ import airjordan2 from '../assest/airjordan2.jpg'
 import airjordan3 from '../assest/airjordan3.jpg'
 import airjordan4 from '../assest/airjordan4.jpg'
 
-const arregloZapatillas = [
+const arregloProductos = [
     {
         id: 1,
         modelo: 'Air Jordan 1 High Blancas, Negras y Rojas',
-        detalle: 'Familiares pero siempre frescas, las icónicas Air Jordan 1 están remasterizadas para la cultura actual de sneakerheads.',
+        detalle: '...',
+        marca: 'Jordan',
         precio: '$ 50,000',
-        img: airjordan1, 
+        img: airjordan1,
+        categoria: 'snikers'
     },
     {
         id: 2,
         modelo: 'Air Jordan 1 High Celestes y Blancas',
-        detalle: 'Familiares pero siempre frescas, las icónicas Air Jordan 1 están remasterizadas para la cultura actual de sneakerheads.',
+        detalle: '...',
+        marca: 'Jordan',
         precio: '$ 50,000',
-        img: airjordan2, 
+        img: airjordan2,
+        categoria: 'snikers'
     },
     {
         id: 3,
         modelo: 'Air Jordan 1 High Blancas, Azules y Rojas',
-        detalle: 'Familiares pero siempre frescas, las icónicas Air Jordan 1 están remasterizadas para la cultura actual de sneakerheads.',
+        detalle: '...',
+        marca: 'Jordan',
         precio: '$ 50,000',
-        img: airjordan3, 
+        img: airjordan3,
+        categoria: 'snikers'
     },
     {
         id: 4,
         modelo: 'Air Jordan 1 High Blancas, Rosas y Rojas',
-        detalle: 'Familiares pero siempre frescas, las icónicas Air Jordan 1 están remasterizadas para la cultura actual de sneakerheads.',
+        detalle: '...',
+        marca: 'Jordan',
         precio: '$ 50,000',
-        img: airjordan4, 
+        img: airjordan4,
+        categoria: 'snikers'
     }
 ]
-
 
 export const ItemDetailContainer = () => {
     const [product, setProduct] = useState([])
@@ -44,7 +51,7 @@ export const ItemDetailContainer = () => {
     const getProduct = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(arregloZapatillas)
+                resolve(arregloProductos)
             }, 2000)
         })
     }
@@ -61,16 +68,18 @@ export const ItemDetailContainer = () => {
         asincrona()
     }, [])
 
-    
-        return (
-                <div className='ItemDetailContainer'>
-                    {
-                        product.map((product) => {
-                            return(
-                                <ItemDetail key={product} product={product}/>
-                            )
-                        })
-                    }
-                </div>
-        )
+
+    return (
+        
+            <div className='ItemDetailContainer'>
+                {
+                    product.map((product) => {
+                        return (
+                            <ItemDetail key={product} product={product} />
+                        )
+                    })
+                }
+            </div>
+        
+    )
 }

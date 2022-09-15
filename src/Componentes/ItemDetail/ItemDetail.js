@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import airjordan1 from '../assest/airjordan1.jpg'
 import './ItemDetail.css'
 
 

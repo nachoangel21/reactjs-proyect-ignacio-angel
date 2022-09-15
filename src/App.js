@@ -1,25 +1,36 @@
 
 import './App.css';
-import Navbar from './Componentes/NavBar/Navbar'
-import { ItemList } from './Componentes/ItemList/ItemList'
+import Navbar from './Componentes/NavBar/Navbar';
+import { ItemList } from './Componentes/ItemList/ItemList';
 import { useState } from 'react';
-import { ItemDetailContainer } from './Componentes/ItemDetailContainer/ItemDetailContainer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ItemDetailContainer } from './Componentes/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
-  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar></Navbar>
-      </header>
-      <section>
-        <ItemList/>
-      </section>
-        <ItemDetailContainer/>
-      <footer>
-        <p>Este es el pie</p>
-      </footer>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Navbar></Navbar>
+          <Routes>
+            <Route path='/' element={<ItemList/>}/>
+            <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
+            <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
+            <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
+            <Route path='/productos/:tipoProductos' element={<ItemList/>}/>
+            <Route path='/ptoducto/:id' element={<ItemDetailContainer/>}/>
+          </Routes>
+        </header>
+        <section>
+          <ItemList />
+        </section>
+        <ItemDetailContainer />
+        <footer>
+          <p>Este es el pie</p>
+        </footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
