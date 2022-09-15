@@ -48,7 +48,7 @@ const arregloProductos = [
 
 export const ItemDetailContainer = () => {
     const [product, setProduct] = useState([])
-    const {tipoProductos} = useParams();
+    const {id} = useParams();
     const getProduct = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -60,7 +60,7 @@ export const ItemDetailContainer = () => {
         const asincrona = async () => {
             try {
                 const productoTraido = await getProduct();
-                const newList = productoTraido.filter(product=>product.id === tipoProductos)
+                const newList = productoTraido.filter(product=>product.id === id)
                 setProduct(newList);
                 console.log("productoTraido", productoTraido);
             } catch (error) {

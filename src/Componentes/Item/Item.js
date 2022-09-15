@@ -34,7 +34,7 @@ export const Card = ({ producto }) => {
                 <h3 className="cardElement">{producto.marca}</h3>
                 <p className="cardElement">{producto.precio}</p>
                 <ItemCount initial={1} stock={5} className="cardElement" />
-                <NavLink to="/producto/:id">
+                <NavLink to={`/productos/${producto.id}`}>
                     <button onClick={showDetail}>Ver detalle</button>
                 </NavLink>
 
